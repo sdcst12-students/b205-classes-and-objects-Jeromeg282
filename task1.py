@@ -6,16 +6,23 @@ Instantiate 3 separate rectangular prisms with the test data given, and check th
 """
 
 class rectPrism:
+    length = 1
+    width = 1
+    height = 1
 
-    def __init__(self):
+    def __init__(self, l=0,w=0,h=0):
         # note you will need to specify more input parameters
-        pass
+      self.length=l
+      self.width=w
+      self.height=h
+      
+    pass
 
     def volume(self):
-        return
+        return self.length * self.width * self.height
     
     def surfaceArea(self):
-        return
+        return 2 * (self.length * self.width + self.length * self.height + self.width * self.height)
 
 # class instances and assertions below:
 

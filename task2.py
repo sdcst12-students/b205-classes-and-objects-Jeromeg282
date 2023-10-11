@@ -8,8 +8,6 @@ Extension: accept time given in different measurements, but convert them to year
 """
 
 
-from typing import runtime_checkable
-
 
 class Calc:
     principal = 0
@@ -25,14 +23,19 @@ class Calc:
         return
 
     def interest(self,t):
-        #a = P(1+r / n)*nt
         self.Time=t
-        
+        amount = self.principal * (1 + self.rate / self.nPeriods) ** (self.nPeriods * self.Time)
+        interest = amount - self.principal
+        return round(interest, 2)
 
-        return (round(((self.prinicpal*((1+(self.rate/self.nperiods)))**(self.nPeriods*self.Time))-self.prinicipal, 2))
+
     
     def amount(self,t):
-        return
+        self.Time=t
+        amount = self.principal * (1 + self.rate / self.nPeriods) ** (self.nPeriods * self.Time)
+
+
+        return round(amount, 2)
 
 a = Calc(P=1000,r=4,n=2) 
 assert a.interest(3) == 126.16
